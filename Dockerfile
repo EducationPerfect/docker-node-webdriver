@@ -27,7 +27,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64 /usr/local/bin/dumb-init
 RUN chmod +x /usr/local/bin/dumb-init
 
-RUN npm install -g webdriver-manager@12.1.2
+RUN npm install -g webdriver-manager@13.0.0
 RUN webdriver-manager update
 
 RUN groupadd -r webdriver \
