@@ -29,9 +29,3 @@ RUN chmod +x /usr/local/bin/dumb-init
 
 RUN npm install -g webdriver-manager@12.1.5
 RUN webdriver-manager update
-
-RUN groupadd -r webdriver \
-    && useradd -r -g webdriver -G audio,video -d /webdriver -m webdriver
-
-USER webdriver
-WORKDIR /webdriver
