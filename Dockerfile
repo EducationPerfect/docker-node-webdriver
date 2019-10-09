@@ -15,17 +15,13 @@ RUN FIREFOX_DOWNLOAD_URL=$(if [ $FIREFOX_VERSION = "latest" ] || [ $FIREFOX_VERS
     && mv /opt/firefox /opt/firefox-$FIREFOX_VERSION \
     && ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox
 
-ARG CHROME_VERSION="google-chrome-stable"
+ARG CHROME_VERSION="77.0.3865.90"
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update -qqy \
-    && apt-get -qqy install \
-        ${CHROME_VERSION:-google-chrome-stable} \
+    && apt-get -qqy install google-chrome-stable=${CHROME_VERSION}-1 \
     && rm /etc/apt/sources.list.d/google-chrome.list \
     && rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
-ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64 /usr/local/bin/dumb-init
-RUN chmod +x /usr/local/bin/dumb-init
 
 RUN npm install -g webdriver-manager@12.1.7
 RUN webdriver-manager update
