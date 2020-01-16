@@ -15,7 +15,7 @@ RUN FIREFOX_DOWNLOAD_URL=$(if [ $FIREFOX_VERSION = "latest" ] || [ $FIREFOX_VERS
     && mv /opt/firefox /opt/firefox-$FIREFOX_VERSION \
     && ln -fs /opt/firefox-$FIREFOX_VERSION/firefox /usr/bin/firefox
 
-ARG CHROME_VERSION="78.0.3904.70"
+ARG CHROME_VERSION="79.0.3945.117"
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update -qqy \
