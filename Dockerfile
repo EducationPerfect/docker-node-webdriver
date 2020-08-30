@@ -17,7 +17,7 @@ RUN FIREFOX_DOWNLOAD_URL=$(if [ $FIREFOX_VERSION = "latest" ] || [ $FIREFOX_VERS
 
 
 # Get stable version from here https://www.ubuntuupdates.org/pm/google-chrome-stable
-ARG CHROME_VERSION="84.0.4147.89"
+ARG CHROME_VERSION="85.0.4183.83"
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update -qqy \
